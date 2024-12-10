@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Видео с SVG маской</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Видео на фоне -->
+      <div class="video-container">
+        <video class="video-background" autoplay loop muted>
+          <source src="/assets/video.mp4" type="video/mp4" />
+          Видимо ваш браузер не поддерживает видео
+        </video>
+      </div>
+
+      <!-- SVG маска с прорезью -->
+      <div class="mask-container">
+        <svg
+          id="mask-svg"
+          version="1.0"
+          xmlns="http://www.w3.org/2000/svg"
+          width="100%"
+          height="100%"
+          viewBox="0 0 1293.000000 576.000000"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          <g
+            transform="translate(0.000000,576.000000) scale(0.100000,-0.100000)"
+            fill="#000000"
+            stroke="none"
+          >
+            <path
+              id="mask-path"
+              d="M0 2880 l0 -2880 6465 0 6465 0 0 2880 0 2880 -6465 0 -6465 0 0 -2880z
+              m8430 1985 l0 -315 -1285 0 -1285 0 0 315 0 315 1285 0 1285 0 0 -315z
+              m-3632 -1352 c-2 -231 -6 -298 -15 -297 -7 1 -186 2 -398 3 l-385 1 0 295 0 295 400 0 400 0 -2 -297z
+              m2602 -1348 l0 -305 -900 0 -900 0 0 305 0 305 900 0 900 0 0 -305z
+              m5380 -1355 l0 -290 -3195 0 -3195 0 0 290 0 290 3195 0 3195 0 0 -290z"
+            />
+          </g>
+        </svg>
+
+        <!-- Невидимые блоки для отступов перед прорезями -->
+        <div class="invisible-block top-block"></div>
+        <div class="invisible-block middle-block"></div>
+        <div class="invisible-block bottom-block"></div>
+      </div>
+
+      <!-- Белый текст поверх -->
+      <div class="text-mask">
+        <h1>
+          <span class="text-block block-1">We’re here</span>
+          <span class="text-block block-2">to make</span><br />
+          <span class="text-block block-3">healthy</span>
+          <span class="text-block block-4">living effortless,</span><br />
+          <span class="text-block block-5">so you can</span>
+          <span class="text-block block-6">live longer</span><br />
+          <span class="text-block block-7">and happier</span>
+        </h1>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

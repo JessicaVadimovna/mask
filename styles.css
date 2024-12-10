@@ -1,0 +1,150 @@
+@font-face {
+    font-family: 'Chelsea';
+    src: url(assets/Chelsea_Market/ChelseaMarket-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+  }
+  
+  .container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Весь экран */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .video-background {
+    object-fit: cover; /* Заполняет весь экран, обрезая лишнее */
+    width: 100%;
+    height: 100%;
+  }
+  
+  .mask-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .text-mask {
+    position: relative;
+    color: white;
+    text-align: left;
+    z-index: 1;
+    width: 100%; /* Текст займет всю ширину контейнера */
+  }
+  
+  h1 {
+    font-size: 7.6vw; /* Шрифт адаптивен к ширине экрана */
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+/* Индивидуальные стили для каждого словосочетания */
+.text-block {
+    display: inline-block;
+  }
+  
+  .block-1 {
+    padding-right: 20%;/* Стили для первого словосочетания */
+  }
+  
+  .block-2 {
+    /* Стили для второго словосочетания */
+  }
+  
+  .block-3 {
+    padding-right: 0.001%;/* Стили для третьего словосочетания */
+  }
+  
+  .block-4 {
+    /* Стили для четвертого словосочетания */
+  }
+  
+  .block-5 {
+    /* Стили для пятого словосочетания */
+  }
+  
+  .block-6 {
+    /* Стили для шестого словосочетания */
+  }
+  
+  .block-7 {
+    /* Стили для седьмого словосочетания */
+  }
+
+  /* Невидимые блоки, предотвращающие наложение текста */
+
+.invisible-block {
+    position: absolute;
+    background: transparent;
+    z-index: 1;
+  }
+  
+  .top-block {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5%; /* Отступ перед прорезью */
+  }
+  
+  .middle-block {
+    top: 30%; /* Место под прорезью */
+    left: 0;
+    width: 100%;
+    height: 20%; /* Высота прорези */
+  }
+  
+  .bottom-block {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5%; /* Отступ после прорезей */
+  }
+  
+  @media (max-width: 745px) {
+    h1 {
+      font-size: 10vw; /* Увеличиваем шрифт для меньших экранов */
+    }
+    
+    #mask-path {
+      /* Изменяем путь маски для меньших экранов, добавляя отступы перед и после прорезей */
+      d: path("M0 2880 l0 -2880 4500 0 4500 0 0 2880 0 2880 -4500 0 -4500 0 0 -2880z m6000 1985 l0 -315 -850 0 -850 0 0 315 0 315 850 0 850 0 0 -315z m-2200 -1352 c-2 -231 -6 -298 -15 -297 -7 1 -150 2 -300 3 l-300 1 0 295 0 295 300 0 300 0 -2 -297z m1600 -1348 l0 -305 -600 0 -600 0 0 305 0 305 600 0 600 0 0 -305z m3300 -1355 l0 -290 -2000 0 -2000 0 0 290 0 290 2000 0 2000 0 0 -290z");
+    }
+  }
+  
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 12vw; /* Еще больше для очень маленьких экранов */
+    }
+    
+    #mask-path {
+      /* Уменьшаем прорези еще больше и добавляем отступы */
+      d: path("M0 2880 l0 -2880 3000 0 3000 0 0 2880 0 2880 -3000 0 -3000 0 0 -2880z m3800 1985 l0 -315 -750 0 -750 0 0 315 0 315 750 0 750 0 0 -315z m-1600 -1352 c-2 -231 -6 -298 -15 -297 -7 1 -120 2 -250 3 l-250 1 0 295 0 295 250 0 250 0 -2 -297z m1300 -1348 l0 -305 -500 0 -500 0 0 305 0 305 500 0 500 0 0 -305z m2500 -1355 l0 -290 -1500 0 -1500 0 0 290 0 290 1500 0 1500 0 0 -290z");
+    }
+  }
