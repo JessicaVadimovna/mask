@@ -32,6 +32,8 @@
         object-fit: cover;
         opacity: 0.5;
         z-index: -1;
+        border-top: 150px solid black;
+        border-bottom: 150px solid black;
       }
 
       .parent {
@@ -55,11 +57,12 @@
       }
 
       .parent > div:not(.transparent) {
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: black;
       }
 
       .transparent {
         background-color: transparent;
+        border: 2vw solid black; /* Added black border */
       }
 
       .div3 {
@@ -157,7 +160,7 @@
         }
 
         .parent > div {
-          font-size: 2.5vw;
+          font-size: 3vw;
         }
       }
 
@@ -190,7 +193,7 @@
     </video>
 
     <div class="parent">
-      <div class="div1">We’re</div>
+      <div class="div1">We're</div>
       <div class="div2">here</div>
       <div class="div3 transparent"></div>
       <div class="div4">to</div>
