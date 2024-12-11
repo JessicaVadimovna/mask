@@ -3,66 +3,240 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Видео с SVG маской</title>
+    <title>Адаптивная Грид-сетка</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #000;
+        font-family: Arial, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+      }
+
+      video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.5;
+        z-index: -1;
+      }
+
+      .parent {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 10px;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0);
+      }
+
+      .parent > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 5vw;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        background-color: #00000000;
+      }
+
+      .parent > div:not(.transparent) {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      .transparent {
+        background-color: transparent;
+      }
+
+      .div3 {
+        grid-column: span 2 / span 2;
+      }
+      .div4 {
+        grid-column-start: 5;
+      }
+      .div5 {
+        grid-column-start: 6;
+      }
+      .div6 {
+        grid-row-start: 2;
+      }
+      .div7 {
+        grid-row-start: 2;
+      }
+      .div8 {
+        grid-row-start: 2;
+      }
+      .div9 {
+        grid-column: span 3 / span 3;
+        grid-row-start: 2;
+      }
+      .div10 {
+        grid-row-start: 3;
+      }
+      .div11 {
+        grid-row-start: 3;
+      }
+      .div12 {
+        grid-row-start: 3;
+      }
+      .div13 {
+        grid-row-start: 3;
+      }
+      .div14 {
+        grid-row-start: 3;
+      }
+      .div15 {
+        grid-row-start: 3;
+      }
+      .div18 {
+        grid-column: span 4 / span 4;
+      }
+
+      @media screen and (max-width: 768px) {
+        .parent {
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(6, 1fr);
+        }
+
+        .div3 {
+          grid-column: span 2 / span 2;
+        }
+        .div4 {
+          grid-column-start: auto;
+        }
+        .div5 {
+          grid-column-start: auto;
+        }
+        .div6 {
+          grid-row-start: auto;
+        }
+        .div7 {
+          grid-row-start: auto;
+        }
+        .div8 {
+          grid-row-start: auto;
+        }
+        .div9 {
+          grid-column: span 4 / span 4;
+          grid-row-start: auto;
+        }
+        .div10 {
+          grid-row-start: auto;
+        }
+        .div11 {
+          grid-row-start: auto;
+        }
+        .div12 {
+          grid-row-start: auto;
+        }
+        .div13 {
+          grid-row-start: auto;
+        }
+        .div14 {
+          grid-row-start: auto;
+        }
+        .div15 {
+          grid-row-start: auto;
+        }
+        .div18 {
+          grid-column: span 4 / span 4;
+        }
+
+        .parent > div {
+          font-size: 2.5vw;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .parent {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(12, 1fr);
+        }
+
+        .div3 {
+          grid-column: span 2 / span 2;
+        }
+        .div9 {
+          grid-column: span 2 / span 2;
+        }
+        .div18 {
+          grid-column: span 2 / span 2;
+        }
+
+        .parent > div {
+          font-size: 4vw;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="container">
-      <!-- Видео на фоне -->
-      <div class="video-container">
-        <video class="video-background" autoplay loop muted>
-          <source src="video.mp4" type="video/mp4" />
-          Видимо ваш браузер не поддерживает видео
-        </video>
-      </div>
+    <video autoplay loop muted>
+      <source src="video.mp4" type="video/webm" />
+      Ваш браузер не поддерживает видео.
+    </video>
 
-      <!-- SVG маска с прорезью -->
-      <div class="mask-container">
-        <svg
-          id="mask-svg"
-          version="1.0"
-          xmlns="http://www.w3.org/2000/svg"
-          width="100%"
-          height="100%"
-          viewBox="0 0 1293.000000 576.000000"
-          preserveAspectRatio="xMidYMid slice"
-        >
-          <g
-            transform="translate(0.000000,576.000000) scale(0.100000,-0.100000)"
-            fill="#000000"
-            stroke="none"
-          >
-            <path
-              id="mask-path"
-              d="M0 2880 l0 -2880 6465 0 6465 0 0 2880 0 2880 -6465 0 -6465 0 0 -2880z
-              m8430 1985 l0 -315 -1285 0 -1285 0 0 315 0 315 1285 0 1285 0 0 -315z
-              m-3632 -1352 c-2 -231 -6 -298 -15 -297 -7 1 -186 2 -398 3 l-385 1 0 295 0 295 400 0 400 0 -2 -297z
-              m2602 -1348 l0 -305 -900 0 -900 0 0 305 0 305 900 0 900 0 0 -305z
-              m5380 -1355 l0 -290 -3195 0 -3195 0 0 290 0 290 3195 0 3195 0 0 -290z"
-            />
-          </g>
-        </svg>
-
-        <!-- Невидимые блоки для отступов перед прорезями -->
-        <div class="invisible-block top-block"></div>
-        <div class="invisible-block middle-block"></div>
-        <div class="invisible-block bottom-block"></div>
-      </div>
-
-      <!-- Белый текст поверх -->
-      <div class="text-mask">
-        <h1>
-          <span class="text-block block-1">We’re here</span>
-          <span class="text-block block-2">to make</span><br />
-          <span class="text-block block-3">healthy</span>
-          <span class="text-block block-4">living effortless,</span><br />
-          <span class="text-block block-5">so you can</span>
-          <span class="text-block block-6">live longer</span><br />
-          <span class="text-block block-7">and happier</span>
-        </h1>
-      </div>
+    <div class="parent">
+      <div class="div1">We’re</div>
+      <div class="div2">here</div>
+      <div class="div3 transparent"></div>
+      <div class="div4">to</div>
+      <div class="div5">make</div>
+      <div class="div6">healthy</div>
+      <div class="div7 transparent"></div>
+      <div class="div8">living</div>
+      <div class="div9">effortless,</div>
+      <div class="div10">so</div>
+      <div class="div11">you</div>
+      <div class="div12">can</div>
+      <div class="div13 transparent"></div>
+      <div class="div14">live</div>
+      <div class="div15">longer</div>
+      <div class="div16">and</div>
+      <div class="div17">happier</div>
+      <div class="div18 transparent"></div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+      function handleResize() {
+        const parent = document.querySelector(".parent");
+        const videoBackground = document.querySelector("video");
+
+        // Адаптивная логика
+        if (window.innerWidth <= 480) {
+          // Мобильная версия
+          parent.style.height = `${window.innerHeight * 0.9}px`;
+          videoBackground.style.opacity = "0.3";
+        } else if (window.innerWidth <= 768) {
+          // Планшетная версия
+          parent.style.height = `${window.innerHeight * 0.8}px`;
+          videoBackground.style.opacity = "0.4";
+        } else {
+          // Десктопная версия
+          parent.style.height = `${window.innerHeight * 0.8}px`;
+          videoBackground.style.opacity = "0.5";
+        }
+      }
+
+      // Первичный запуск
+      handleResize();
+
+      // Обработчик изменения размера окна
+      window.addEventListener("resize", handleResize);
+    </script>
   </body>
 </html>
